@@ -255,7 +255,8 @@ class Tooltip {
       const showEvent = EventHandler.trigger(this.element, this.constructor.Event.SHOW)
       const shadowRoot = Util.findShadowRoot(this.element)
       const isInTheDom = shadowRoot !== null ?
-        shadowRoot.contains(this.element) : this.element.ownerDocument.documentElement.contains(this.element)
+        shadowRoot.contains(this.element) :
+        this.element.ownerDocument.documentElement.contains(this.element)
 
       if (showEvent.defaultPrevented || !isInTheDom) {
         return
@@ -468,7 +469,8 @@ class Tooltip {
 
     if (!title) {
       title = typeof this.config.title === 'function' ?
-        this.config.title.call(this.element) : this.config.title
+        this.config.title.call(this.element) :
+        this.config.title
     }
 
     return title
